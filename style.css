@@ -158,38 +158,31 @@ h3 {
 
 .event-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
 }
 
-@media (min-width: 600px) {
-  .event-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .event-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .event-card {
-  margin-bottom: 1.5rem;
+  min-width: 0;
+  margin-bottom: 0;
   overflow: hidden;
   border: 1px solid #b7c0b7;
   border-radius: 0.75rem;
   background: #ffffff;
 }
 
-.event-card img {
+.event-card img,
+.festival-image {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
 .event-body {
+  min-width: 0;
   padding: 1.25rem;
+  overflow-wrap: anywhere;
 }
 
 .event-body p:last-child {
@@ -220,5 +213,3 @@ h3 {
 .skip-link:focus {
   top: 1rem;
 }
-
-/* Qui aggiungeremo la media query durante la demo. */

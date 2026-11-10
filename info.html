@@ -57,8 +57,13 @@
           </div>
         </div>
         <div class="gallery-controls">
-          <button type="button" class="gallery-btn gallery-prev">Precedente</button>
-          <button type="button" class="gallery-btn gallery-next">Successiva</button>
+          <button type="button" class="gallery-btn gallery-prev" aria-label="Fotografia precedente">
+            <span aria-hidden="true"><</span>
+          </button>
+          
+          <button type="button" class="gallery-btn gallery-next" aria-label="Fotografia successiva">
+            <span aria-hidden="true">></span>
+          </button>
         </div>
       </div>
     </section>
@@ -97,7 +102,10 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><p>Segnale · Progetto didattico · Festival immaginario</p></div></footer>
+  <footer class="site-footer">
+    <div class="container"><p>Segnale · Progetto didattico · Festival immaginario</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@14.4.0/swiper-bundle.min.js"></script>
   <script>
@@ -114,5 +122,6 @@
       }
     });
   </script>
+  
 </body>
 </html>

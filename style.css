@@ -284,29 +284,50 @@ h3 {
   gap: 1rem;
   margin-top: 1rem;
 }
- 
+
+.gallery {
+  position: relative;
+  max-width: 54rem;
+}
+
 .gallery-btn {
-  min-height: 2.75rem;
-  padding: 0.5rem 1.25rem;
-  border: 2px solid var(--colore-primario);
-  border-radius: 0.5rem;
-  background: var(--colore-primario);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  background: rgba(32, 41, 35, 0.5);
   color: #ffffff;
   font: inherit;
+  font-size: 1.5rem;
   font-weight: bold;
+  line-height: 1;
   cursor: pointer;
 }
- 
+
+.gallery-prev {
+  left: 0.75rem;
+}
+
+.gallery-next {
+  right: 0.75rem;
+}
+
 .gallery-btn:hover {
   background: var(--colore-primario-scuro);
-  border-color: var(--colore-primario-scuro);
 }
- 
+
 .gallery-btn:focus-visible {
   outline: 3px solid var(--colore-testo);
   outline-offset: 3px;
 }
- 
+
 /* Mappa */
 .map-wrap {
   width: 100%;

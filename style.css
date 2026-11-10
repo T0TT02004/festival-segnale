@@ -225,3 +225,139 @@ h3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.pagina-luoghi nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+ 
+.pagina-luoghi nav a {
+  margin-right: 0;
+}
+ 
+.pagina-luoghi img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+ 
+.pagina-luoghi *,
+.pagina-luoghi *::before,
+.pagina-luoghi *::after {
+  min-width: 0;
+}
+ 
+/* ---------- Pagina Info e luoghi ---------- */
+ 
+/* Galleria Swiper */
+.gallery {
+  max-width: 54rem;
+}
+ 
+.galleria-sedi {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #b7c0b7;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+ 
+.galleria-sedi .swiper-slide {
+  margin: 0;
+  height: auto;
+}
+ 
+.galleria-sedi .swiper-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+ 
+.galleria-sedi figcaption {
+  padding: 1rem 1.25rem 1.25rem;
+  color: var(--colore-testo);
+}
+ 
+.gallery-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+ 
+.gallery-btn {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--colore-primario);
+  border-radius: 0.5rem;
+  background: var(--colore-primario);
+  color: #ffffff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+ 
+.gallery-btn:hover {
+  background: var(--colore-primario-scuro);
+  border-color: var(--colore-primario-scuro);
+}
+ 
+.gallery-btn:focus-visible {
+  outline: 3px solid var(--colore-testo);
+  outline-offset: 3px;
+}
+ 
+/* Mappa */
+.map-wrap {
+  width: 100%;
+  max-width: 54rem;
+}
+ 
+#mappa-sedi {
+  display: block;
+  width: 100%;
+  height: 22rem;
+  border: 1px solid #b7c0b7;
+  border-radius: 0.75rem;
+}
+ 
+/* Indirizzi */
+.address-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+ 
+.address-list li {
+  padding: 1rem 1.25rem;
+  border: 1px solid #b7c0b7;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+ 
+.address-list h3 {
+  margin-top: 0;
+}
+ 
+.address-list p {
+  margin: 0 0 0.5rem;
+}
+ 
+.credits {
+  max-width: 65ch;
+  color: #46564b;
+  font-size: 0.875rem;
+}
+ 
+@media (min-width: 768px) {
+  .address-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+ 
+  #mappa-sedi {
+    height: 28rem;
+  }
+}

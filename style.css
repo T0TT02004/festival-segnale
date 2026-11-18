@@ -24,6 +24,14 @@ body {
   line-height: 1.6;
 }
 
+html {
+  scroll-padding-top: 11rem;
+}
+
+.skip-link {
+  z-index: 1100;
+}
+
 a {
   color: var(--colore-primario);
 }

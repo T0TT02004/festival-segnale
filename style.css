@@ -1,15 +1,16 @@
-/* Stile iniziale: tipografia, colori e variabili CSS sono già predisposti.
-   Lavoreremo su collegamenti, CSS condiviso e disposizione delle schede. */
-
-/* Scelte comuni: ogni regola usa var() per richiamarne il valore. */
 :root {
-  --colore-primario: #a80000;
-  --colore-primario-scuro: #810000;
-  --colore-sfondo: #f5f2e9;
-  --colore-testo: #202923;
+  --colore-sfondo: #2b50d6;          /* blu elettrico di fondo */
+  --colore-testo: #ffffff;           /* testo su fondo blu */
+  --colore-primario: #a8ecf2;        /* turchese chiaro: titoli, link, dettagli */
+  --colore-primario-scuro: #14246b;  /* blu notte: testo su schede bianche e hover */
+  --colore-accento: #f5922f;         /* arancio: pulsante e filetto dell'intestazione */
+  --colore-accento-chiaro: #ffb066;
+  --colore-secondario: #dbe4ff;      /* testo secondario su fondo blu */
+  --colore-secondario-scheda: #3a4a8a; /* testo secondario su schede bianche */
   --font-testo: Arial, Helvetica, sans-serif;
-  --font-titoli: "Basic", Arial, Helvetica, sans-serif;
-}
+  /* Carattere web: Unbounded (Google Fonts), caricato dal link nell'head */
+  --font-titoli: "Unbounded", "Arial Black", Arial, sans-serif;
+  }
 
 * {
   box-sizing: border-box;
@@ -96,7 +97,7 @@ nav a[aria-current="page"] {
 
 .eyebrow,
 .event-meta {
-  color: #46564b;
+  color: var(--colore-testo);
   font-size: 0.875rem;
   font-weight: bold;
 }
@@ -134,17 +135,18 @@ h3 {
 
 .button-link {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 2rem 2rem;
-  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 5rem;
   background: var(--colore-primario);
-  color: #ffffff;
+  color: #14246b;
   font-weight: bold;
   text-decoration: none;
 }
 
 .button-link:hover {
   background: var(--colore-primario-scuro);
+  color: var(--colore-testo);
 }
 
 .content-section {
@@ -180,7 +182,7 @@ h3 {
   overflow: hidden;
   border: 1px solid #b7c0b7;
   border-radius: 0.75rem;
-  background: #ffffff;
+  background: var(--colore-sfondo);
 }
 
 .event-card img,
@@ -202,14 +204,14 @@ h3 {
 }
 
 .event-place {
-  color: #46564b;
+  color: var(--colore-primario);
   font-size: 0.875rem;
 }
 
 .site-footer {
   padding: 1.25rem 0;
   border-top: 1px solid #b7c0b7;
-  color: #46564b;
+  color: var(--colore-testo);
   font-size: 0.875rem;
 }
 
@@ -272,7 +274,7 @@ h3 {
   overflow: hidden;
   border: 1px solid #b7c0b7;
   border-radius: 0.75rem;
-  background: #ffffff;
+  background: var(--colore-sfondo);
 }
  
 .galleria-sedi .swiper-slide {
@@ -315,7 +317,7 @@ h3 {
   border: none;
   border-radius: 50%;
   background: rgba(32, 41, 35, 0.5);
-  color: #ffffff;
+  color: var(--colore-testo);
   font: inherit;
   font-size: 1.5rem;
   font-weight: bold;
@@ -332,7 +334,7 @@ h3 {
 }
 
 .gallery-btn:hover {
-  background: var(--colore-primario-scuro);
+  background: var(--colore-primario);
 }
 
 .gallery-btn:focus-visible {
@@ -368,7 +370,7 @@ h3 {
   padding: 1rem 1.25rem;
   border: 1px solid #b7c0b7;
   border-radius: 0.75rem;
-  background: #ffffff;
+  background: var(--colore-sfondo);
 }
  
 .address-list h3 {
@@ -381,7 +383,7 @@ h3 {
  
 .credits {
   max-width: 65ch;
-  color: #46564b;
+  color: var(--colore-secondario-scheda);
   font-size: 0.875rem;
 }
  

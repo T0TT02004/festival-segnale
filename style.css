@@ -383,7 +383,7 @@ h3 {
  
 .credits {
   max-width: 65ch;
-  color: var(--colore-secondario-scheda);
+  color: var(--colore-secondario);
   font-size: 0.875rem;
 }
  

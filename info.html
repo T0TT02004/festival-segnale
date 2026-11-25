@@ -103,6 +103,28 @@
       <p class="reading-text">Festival, sedi ed eventi sono inventati per questa esercitazione. Non rappresentano un evento reale.</p>
       <p class="credits">Fotografie: sede centrale, Neq00 (<a href="https://commons.wikimedia.org/wiki/File:Politecnico_di_Torino,_sede_di_corso_Duca_degli_Abruzzi,_Torino.jpg">Wikimedia Commons</a>); Valentino, Simo.Albo80 (<a href="https://commons.wikimedia.org/wiki/File:Il_cortile_geometrico_del_Valentino.jpg">Wikimedia Commons</a>); Mirafiori, <a href="https://www.icis.it/wp-content/uploads/2024/10/L2300-CENTRO-DESIGN-anteprima.jpg">ICIS</a>.</p>
     </section>
+
+    <section class="content-section" aria-labelledby="titolo-meteo">
+      <h2 id="titolo-meteo">Meteo a Torino adesso</h2>
+      <p class="reading-text">Condizioni meteorologiche rilevate in questo momento a Torino (dato attuale, non relativo alle date del festival).</p>
+      <p id="stato-meteo" class="reading-text" aria-live="polite">Caricamento dei dati meteo in corso...</p>
+      <ul id="dati-meteo" class="address-list" hidden>
+        <li>
+          <h3>Temperatura</h3>
+          <p id="meteo-temperatura">—</p>
+        </li>
+        <li>
+          <h3>Vento</h3>
+          <p id="meteo-vento">—</p>
+        </li>
+        <li>
+          <h3>Rilevazione</h3>
+          <p id="meteo-ora">—</p>
+        </li>
+      </ul>
+      <p class="credits">Dati meteo: <a href="https://open-meteo.com/">Open-Meteo</a>, licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it">CC BY 4.0</a>.</p>
+    
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -124,6 +146,44 @@
         slideLabelMessage: 'Fotografia {{index}} di {{slidesLength}}'
       }
     });
+  </script>
+  
+  <script>
+    async function caricaMeteo() {
+      const statoEl = document.getElementById('stato-meteo');
+      const listaEl = document.getElementById('dati-meteo');
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=45.0703&longitude=7.6869&current=temperature_2m,wind_speed_10m&timezone=Europe%2FRome';
+
+      try {
+        const risposta = await fetch(url);
+        if (!risposta.ok) {
+          throw new Error('Risposta non valida dal servizio meteo');
+        }
+
+        const dati = await risposta.json();
+        const corrente = dati.current;
+        const unita = dati.current_units;
+
+        document.getElementById('meteo-temperatura').textContent =
+          `${corrente.temperature_2m} ${unita.temperature_2m}`;
+        document.getElementById('meteo-vento').textContent =
+          `${corrente.wind_speed_10m} ${unita.wind_speed_10m}`;
+
+        const [dataStr, oraStr] = corrente.time.split('T');
+        const [anno, mese, giorno] = dataStr.split('-');
+        document.getElementById('meteo-ora').textContent =
+          `${giorno}/${mese}/${anno} alle ${oraStr}`;
+
+        statoEl.hidden = true;
+        listaEl.hidden = false;
+      } catch (errore) {
+        statoEl.hidden = false;
+        listaEl.hidden = true;
+        statoEl.textContent = 'Dati meteo al momento non disponibili.';
+      }
+    }
+
+    caricaMeteo();
   </script>
   
 </body>
